@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{A87E596E-524E-41E1-BBF6-131C3428DDF9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docs", "_docs", "{745E8AA0-8FBA-430E-BEA5-14466529567F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{443D2304-269B-42E8-9123-DE4FD42D1F25}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{778AE331-05EA-4BD3-BAB7-68B5FD5E3944}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Api", "api\Chain.Api\Chain.Api.csproj", "{86CC0B2C-9159-4BEF-A1B9-AE586AA32CBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Data", "data\Chain.Data\Chain.Data.csproj", "{57E63023-B7AC-40E1-B58E-BF3C3B6B3133}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Entities", "data\Chain.Entities\Chain.Entities.csproj", "{049EDB3A-40F4-4E3B-A3F1-45C369A907B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Data.Services", "services\Chain.Data.Services\Chain.Data.Services.csproj", "{B813620D-8D15-46C1-A102-B845A41EA6EC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86CC0B2C-9159-4BEF-A1B9-AE586AA32CBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86CC0B2C-9159-4BEF-A1B9-AE586AA32CBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86CC0B2C-9159-4BEF-A1B9-AE586AA32CBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86CC0B2C-9159-4BEF-A1B9-AE586AA32CBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57E63023-B7AC-40E1-B58E-BF3C3B6B3133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57E63023-B7AC-40E1-B58E-BF3C3B6B3133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57E63023-B7AC-40E1-B58E-BF3C3B6B3133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57E63023-B7AC-40E1-B58E-BF3C3B6B3133}.Release|Any CPU.Build.0 = Release|Any CPU
+		{049EDB3A-40F4-4E3B-A3F1-45C369A907B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{049EDB3A-40F4-4E3B-A3F1-45C369A907B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{049EDB3A-40F4-4E3B-A3F1-45C369A907B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{049EDB3A-40F4-4E3B-A3F1-45C369A907B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B813620D-8D15-46C1-A102-B845A41EA6EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B813620D-8D15-46C1-A102-B845A41EA6EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B813620D-8D15-46C1-A102-B845A41EA6EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B813620D-8D15-46C1-A102-B845A41EA6EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{86CC0B2C-9159-4BEF-A1B9-AE586AA32CBA} = {A87E596E-524E-41E1-BBF6-131C3428DDF9}
+		{57E63023-B7AC-40E1-B58E-BF3C3B6B3133} = {443D2304-269B-42E8-9123-DE4FD42D1F25}
+		{049EDB3A-40F4-4E3B-A3F1-45C369A907B4} = {443D2304-269B-42E8-9123-DE4FD42D1F25}
+		{B813620D-8D15-46C1-A102-B845A41EA6EC} = {778AE331-05EA-4BD3-BAB7-68B5FD5E3944}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9BE395DB-893E-4372-805D-FF0FBB49C1FE}
+	EndGlobalSection
+EndGlobal
