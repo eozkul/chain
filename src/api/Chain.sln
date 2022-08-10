@@ -6,18 +6,27 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{A87E596E-524E-41E1-BBF6-131C3428DDF9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docs", "_docs", "{745E8AA0-8FBA-430E-BEA5-14466529567F}"
+	ProjectSection(SolutionItems) = preProject
+		Migration.txt = Migration.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{443D2304-269B-42E8-9123-DE4FD42D1F25}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{778AE331-05EA-4BD3-BAB7-68B5FD5E3944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Api", "api\Chain.Api\Chain.Api.csproj", "{86CC0B2C-9159-4BEF-A1B9-AE586AA32CBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chain.Api", "api\Chain.Api\Chain.Api.csproj", "{86CC0B2C-9159-4BEF-A1B9-AE586AA32CBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Data", "data\Chain.Data\Chain.Data.csproj", "{57E63023-B7AC-40E1-B58E-BF3C3B6B3133}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chain.Data", "data\Chain.Data\Chain.Data.csproj", "{57E63023-B7AC-40E1-B58E-BF3C3B6B3133}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Entities", "data\Chain.Entities\Chain.Entities.csproj", "{049EDB3A-40F4-4E3B-A3F1-45C369A907B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chain.Entities", "data\Chain.Entities\Chain.Entities.csproj", "{049EDB3A-40F4-4E3B-A3F1-45C369A907B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Data.Services", "services\Chain.Data.Services\Chain.Data.Services.csproj", "{B813620D-8D15-46C1-A102-B845A41EA6EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chain.Data.Services", "services\Chain.Data.Services\Chain.Data.Services.csproj", "{B813620D-8D15-46C1-A102-B845A41EA6EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{94C7B541-AF06-4633-93D8-5BE82DB46CC0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chain.Common", "common\Chain.Common\Chain.Common.csproj", "{B241B4CF-1292-4678-AC68-6DCEFBEBA139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chain.Data.Seed", "data\Chain.Data.Seed\Chain.Data.Seed.csproj", "{294A9BE9-81EC-4D53-B659-05414BB508B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +50,14 @@ Global
 		{B813620D-8D15-46C1-A102-B845A41EA6EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B813620D-8D15-46C1-A102-B845A41EA6EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B813620D-8D15-46C1-A102-B845A41EA6EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B241B4CF-1292-4678-AC68-6DCEFBEBA139}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B241B4CF-1292-4678-AC68-6DCEFBEBA139}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B241B4CF-1292-4678-AC68-6DCEFBEBA139}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B241B4CF-1292-4678-AC68-6DCEFBEBA139}.Release|Any CPU.Build.0 = Release|Any CPU
+		{294A9BE9-81EC-4D53-B659-05414BB508B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{294A9BE9-81EC-4D53-B659-05414BB508B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{294A9BE9-81EC-4D53-B659-05414BB508B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{294A9BE9-81EC-4D53-B659-05414BB508B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +67,8 @@ Global
 		{57E63023-B7AC-40E1-B58E-BF3C3B6B3133} = {443D2304-269B-42E8-9123-DE4FD42D1F25}
 		{049EDB3A-40F4-4E3B-A3F1-45C369A907B4} = {443D2304-269B-42E8-9123-DE4FD42D1F25}
 		{B813620D-8D15-46C1-A102-B845A41EA6EC} = {778AE331-05EA-4BD3-BAB7-68B5FD5E3944}
+		{B241B4CF-1292-4678-AC68-6DCEFBEBA139} = {94C7B541-AF06-4633-93D8-5BE82DB46CC0}
+		{294A9BE9-81EC-4D53-B659-05414BB508B1} = {443D2304-269B-42E8-9123-DE4FD42D1F25}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9BE395DB-893E-4372-805D-FF0FBB49C1FE}
