@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Spread.Data.Request\Spread.Data.Request.csproj" />
+  </ItemGroup>
+
 </Project>
