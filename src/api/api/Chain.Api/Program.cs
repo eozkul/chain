@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<Settings>(builder.Configuration.GetSection(nameof(Settings)));
+var section = builder.Configuration.GetSection($"{nameof(Settings)}");
+var settings = section.Get<Settings>();
 
 // Add services to the container.
 
@@ -18,7 +20,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>() //Identity
     .AddDefaultTokenProviders();
 
 // authorization
-builder.Services.AddAuthorization();
+//builder.Services.AddAuthorization();
 
 var app = builder.Build();
 

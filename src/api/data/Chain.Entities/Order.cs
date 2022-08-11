@@ -11,17 +11,18 @@ namespace Chain.Entities
         [MaxLength(32)]
         public Guid CustomerId { get; set; }
         [Required]
-        [MaxLength(32)]
-        public Guid UserId { get; set; }
+        [MaxLength(100)]
+        public Guid ProductId { get; set; }
         [Required]
         [MaxLength(100)]
         public string Adress { get; set; }
         [Required]
         [MaxLength(32)]
-        public string OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
         [ForeignKey(nameof(CustomerId))]
         public Customer Customer { get; set; }
-        [ForeignKey(nameof(UserId))]
-        public User User { get; set; }
+        [ForeignKey(nameof(ProductId))]
+        public Product Product { get; set; }
+
     }
 }

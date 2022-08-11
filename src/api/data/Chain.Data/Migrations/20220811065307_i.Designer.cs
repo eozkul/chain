@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Chain.Data.Migrations
 {
     [DbContext(typeof(ChainDbContext))]
-    [Migration("20220810223326_i")]
+    [Migration("20220811065307_i")]
     partial class i
     {
         /// <inheritdoc />
@@ -185,20 +185,19 @@ namespace Chain.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("OrderDate")
-                        .IsRequired()
+                    b.Property<DateTime>("OrderDate")
                         .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                        .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
-                        .HasMaxLength(32)
+                    b.Property<Guid>("ProductId")
+                        .HasMaxLength(100)
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CustomerId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("Orders");
                 });
@@ -229,6 +228,9 @@ namespace Chain.Data.Migrations
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
 
                     b.Property<Guid?>("SupplierId")
                         .IsRequired()
@@ -471,15 +473,15 @@ namespace Chain.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Chain.Entities.User", "User")
+                    b.HasOne("Chain.Entities.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Customer");
 
-                    b.Navigation("User");
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Chain.Entities.Product", b =>

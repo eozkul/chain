@@ -238,6 +238,7 @@ namespace Chain.Data.Migrations
                     CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Color = table.Column<int>(type: "int", nullable: false),
                     Dimension = table.Column<int>(type: "int", nullable: false),
+                    Stock = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -264,9 +265,9 @@ namespace Chain.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CustomerId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 32, nullable: false),
-                    UserId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 32, nullable: false),
+                    ProductId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 100, nullable: false),
                     Adress = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    OrderDate = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", maxLength: 32, nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -280,9 +281,9 @@ namespace Chain.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Orders_Users_UserId",
-                        column: x => x.UserId,
-                        principalTable: "Users",
+                        name: "FK_Orders_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -332,9 +333,9 @@ namespace Chain.Data.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_UserId",
+                name: "IX_Orders_ProductId",
                 table: "Orders",
-                column: "UserId");
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
@@ -370,7 +371,7 @@ namespace Chain.Data.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Users");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
@@ -382,7 +383,7 @@ namespace Chain.Data.Migrations
                 name: "Customers");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Categories");

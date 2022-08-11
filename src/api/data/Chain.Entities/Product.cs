@@ -18,5 +18,6 @@ namespace Chain.Entities
         public Category Category { get; set; }
         public Color Color { get; set; }
         public Dimension Dimension { get; set; }
+        public int Stock { get; set; }
     }
 }

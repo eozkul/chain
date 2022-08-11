@@ -50,22 +50,22 @@ public static class MigrationBuilderExtensions
         migrationBuilder.InsertData("Orders",
                                     new string[]
                                     {
-                                        "Id","CustomerId", "UserId", "OrderDate"
+                                        "Id","CustomerId", "ProductId", "OrderDate"
                                     },
                                     new object[,]
                                     {
-                                        {"6DBF4B6F-7C84-457D-9135-FC49E0FEFC0C", "105280BE-6DCC-4ACC-BBA9-B6E7C8CFED19","9BB041D9-B7A0-40E3-B47D-979B3619F76B","11.11.2021"},
+                                        {"6DBF4B6F-7C84-457D-9135-FC49E0FEFC0C", "105280BE-6DCC-4ACC-BBA9-B6E7C8CFED19","49688046-98BC-4557-A2D8-FE4441FE7D1B",DateTime.Now},
                                     });
 
 
         migrationBuilder.InsertData("Products",
                                     new string[]
                                     {
-                                        "Id","ProductName", "SupplierId","CategoryId","Color","Dimension"
+                                        "Id","ProductName", "SupplierId","CategoryId","Color","Dimension","Stock"
                                     },
                                     new object[,]
                                     {
-                                        {"49688046-98BC-4557-A2D8-FE4441FE7D1B", "Marble","985025A7-E79A-4C9E-955C-C91914DF3965","0E391BC2-F4D1-4D3E-A3BC-B0B52874EA0E",1,1},
+                                        {"49688046-98BC-4557-A2D8-FE4441FE7D1B", "Marble","985025A7-E79A-4C9E-955C-C91914DF3965","0E391BC2-F4D1-4D3E-A3BC-B0B52874EA0E",1,1,100},
                                     });
 
 
