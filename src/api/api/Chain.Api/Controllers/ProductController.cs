@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Chain.Data.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chain.Api.Controllers

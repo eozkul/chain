@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Spread.Data.Request\Spread.Data.Request.csproj" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\commands\Chain.Data.Commands\Chain.Data.Commands.csproj" />
   </ItemGroup>
 
 </Project>

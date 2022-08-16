@@ -1,6 +1,8 @@
 using Chain.Common;
 using Chain.Data.Context;
+using Chain.Data.Services.Extensions;
 using Chain.Entities;
+using Chain.Mapper;
 using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,11 +20,18 @@ builder.Services.AddData(builder.Configuration);
 builder.Services.AddIdentity<AppUser, IdentityRole>() //Identity
     .AddEntityFrameworkStores<ChainDbContext>()
     .AddDefaultTokenProviders();
-
-// authorization
-//builder.Services.AddAuthorization();
+builder.Services.AddData(builder.Configuration).AddDataServices().AddAutoMapper();
+if (builder.Environment.IsDevelopment())
+{
+    builder.Services.AddCors(option => { option.AddPolicy(builder.Environment.EnvironmentName, p => { p.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader(); }); });
+}
 
 var app = builder.Build();
+
+// authorization
+builder.Services.AddAuthorization();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

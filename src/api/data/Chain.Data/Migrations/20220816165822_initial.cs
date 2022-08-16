@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Chain.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class i : Migration
+    public partial class initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -346,7 +346,6 @@ namespace Chain.Data.Migrations
                 name: "IX_Products_SupplierId",
                 table: "Products",
                 column: "SupplierId");
-            migrationBuilder.Migrate();
         }
 
         /// <inheritdoc />

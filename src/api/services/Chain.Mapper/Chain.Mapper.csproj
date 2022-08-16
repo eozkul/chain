@@ -13,7 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\data\Chain.Entities\Chain.Entities.csproj" />
-    <ProjectReference Include="..\Spread.Data.Request\Spread.Data.Request.csproj" />
+    <ProjectReference Include="..\Chain.Data.Request\Chain.Data.Request.csproj" />
   </ItemGroup>
 
 </Project>

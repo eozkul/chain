@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
+using Chain.Data.Request.request;
+using Chain.Data.Request.requestDto;
 using Chain.Entities;
-using Spread.Data.Request.requestDto;
-
 namespace Chain.Mapper
 {
     internal class MainProfile:Profile
@@ -9,6 +9,10 @@ namespace Chain.Mapper
         public MainProfile()
         {
             CreateMap<NewOrderRequestDto,Order>();
+            CreateMap<Order, NewOrderRequestDto>();
+            CreateMap<GetAllProductRequest, Product>();
+            CreateMap<Product,GetAllProductRequest>();
+
         }
     }
 }

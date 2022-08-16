@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Chain.Data.Migrations
 {
     [DbContext(typeof(ChainDbContext))]
-    [Migration("20220811065307_i")]
-    partial class i
+    [Migration("20220816165822_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

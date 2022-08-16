@@ -4,18 +4,17 @@ using Chain.Data.Services.Abstractions;
 using MediatR;
 namespace Chain.Data.Services.Concretes
 {
-    internal class ProductService : IProductService
+    internal class OrderService : IOrderService
     {
         private readonly IMediator mediator;
 
-        public ProductService(IMediator mediator)
+        public OrderService(IMediator mediator)
         {
             this.mediator = mediator;
         }
-
-        public Task<List<ProductRequestDto>> GetAll(CancellationToken cancellationToken)
+        public Task<bool> CreateOrder(NewOrderRequestDto data, CancellationToken cancellationToken)
         {
-            return mediator.Send(new GetAllProductRequest(), cancellationToken);
+            return mediator.Send(new NewOrderRequest(data), cancellationToken);
         }
     }
 }

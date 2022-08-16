@@ -1,7 +1,7 @@
 ﻿namespace Microsoft.EntityFrameworkCore.Migrations;
 public static class MigrationBuilderExtensions
 {
-    public static void Migrate(this MigrationBuilder migrationBuilder)
+    public static void AllMigrate(this MigrationBuilder migrationBuilder)
     {
         migrationBuilder.InsertData("Users",
                                     new string[]
@@ -17,11 +17,11 @@ public static class MigrationBuilderExtensions
         migrationBuilder.InsertData("AppUsers",
                                     new string[]
                                     {
-                                        "AppUserId","Email", "UserType", "Password","UserType"
+                                        "AppUserId","Email", "UserType","Password"
                                     },
                                     new object[,]
                                     {
-                                        {"5D0ECA3B-7514-4E50-A5CF-C0CB7290C1CE", "admin@chain.com",1,"a5813ad799f804b5cc8d127f9c7e4e09cf96ce2135b9f77b379881a0ab2d1aec"},
+                                        {"5D0ECA3B-7514-4E50-A5CF-C0CB7290C1CE", "admin@chain.com",1,"a5813ad799f804b5cc8d127f9c7e4e09cf96ce2135b9f77b379881a0ab2d1aec"}
                                     });
 
 
