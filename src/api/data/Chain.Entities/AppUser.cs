@@ -6,9 +6,5 @@ namespace Chain.Entities
     [Table("AppUsers")]
     public class AppUser:IdentityUser
     {
-        public Guid AppUserId { get; set; }
-        public UserType UserType { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
     }
 }

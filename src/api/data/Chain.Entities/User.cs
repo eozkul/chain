@@ -26,7 +26,6 @@ namespace Chain.Entities
         public string Password { get; set; }
         [Required]
         public UserType UserType { get; set; }
-        [Required]
-        public bool IsActive { get; set; }
+     
     }
 }

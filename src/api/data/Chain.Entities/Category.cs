@@ -10,8 +10,7 @@ namespace Chain.Entities
         [Required]
         [MaxLength(100)]
         public string CategoryName { get; set; }
-        [MaxLength(100)]
-        public int Description { get; set; }
+        public string Description { get; set; }
 
     }
 }

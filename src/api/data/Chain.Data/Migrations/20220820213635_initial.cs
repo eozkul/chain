@@ -30,12 +30,9 @@ namespace Chain.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    AppUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    UserType = table.Column<int>(type: "int", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
                     PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -59,7 +56,7 @@ namespace Chain.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CategoryName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Description = table.Column<int>(type: "int", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
                 },
@@ -108,10 +105,10 @@ namespace Chain.Data.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    Department = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: false),
-                    Position = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
+                    Department = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(15)", maxLength: 15, nullable: true),
+                    Position = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: true),
                     Password = table.Column<string>(type: "nvarchar(64)", maxLength: 64, nullable: false),
                     UserType = table.Column<int>(type: "int", nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
@@ -234,8 +231,7 @@ namespace Chain.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProductName = table.Column<string>(type: "nvarchar(32)", maxLength: 32, nullable: false),
-                    SupplierId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    CategoryId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Color = table.Column<int>(type: "int", nullable: false),
                     Dimension = table.Column<int>(type: "int", nullable: false),
                     Stock = table.Column<int>(type: "int", nullable: false),
@@ -249,14 +245,7 @@ namespace Chain.Data.Migrations
                         name: "FK_Products_Categories_CategoryId",
                         column: x => x.CategoryId,
                         principalTable: "Categories",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Products_Suppliers_SupplierId",
-                        column: x => x.SupplierId,
-                        principalTable: "Suppliers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -265,7 +254,6 @@ namespace Chain.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     CustomerId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 32, nullable: false),
-                    ProductId = table.Column<Guid>(type: "uniqueidentifier", maxLength: 100, nullable: false),
                     Adress = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", maxLength: 32, nullable: false),
                     IsActive = table.Column<bool>(type: "bit", nullable: false),
@@ -278,12 +266,6 @@ namespace Chain.Data.Migrations
                         name: "FK_Orders_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Orders_Products_ProductId",
-                        column: x => x.ProductId,
-                        principalTable: "Products",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -333,19 +315,10 @@ namespace Chain.Data.Migrations
                 column: "CustomerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Orders_ProductId",
-                table: "Orders",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Products_SupplierId",
-                table: "Products",
-                column: "SupplierId");
+            migrationBuilder.AllMigrate();
         }
 
         /// <inheritdoc />
@@ -370,6 +343,12 @@ namespace Chain.Data.Migrations
                 name: "Orders");
 
             migrationBuilder.DropTable(
+                name: "Products");
+
+            migrationBuilder.DropTable(
+                name: "Suppliers");
+
+            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
@@ -382,13 +361,7 @@ namespace Chain.Data.Migrations
                 name: "Customers");
 
             migrationBuilder.DropTable(
-                name: "Products");
-
-            migrationBuilder.DropTable(
                 name: "Categories");
-
-            migrationBuilder.DropTable(
-                name: "Suppliers");
         }
     }
 }

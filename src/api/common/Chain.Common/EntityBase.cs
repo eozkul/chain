@@ -4,8 +4,8 @@ namespace Chain.Common
 {
     public class EntityBase
     {
-        [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key]
         public Guid Id { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }

@@ -6,11 +6,11 @@ namespace Chain.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderControllers:ControllerBase
+    public class OrderController:ControllerBase
     {
         private readonly IOrderService service;
 
-        public OrderControllers(IOrderService service)
+        public OrderController(IOrderService service)
         {
             this.service = service;
         }
