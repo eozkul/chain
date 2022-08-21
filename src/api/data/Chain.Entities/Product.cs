@@ -9,10 +9,10 @@ namespace Chain.Entities
         [Required]
         [MaxLength(32)]
         public string ProductName { get; set; }
-        //public Guid? SupplierId { get; set; }
+        public Guid? SupplierId { get; set; }
         public Guid? CategoryId { get; set; }
-        //[ForeignKey(nameof(SupplierId))]
-        //public Supplier Supplier { get; set; }
+        [ForeignKey(nameof(SupplierId))]
+        public Supplier Supplier { get; set; }
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
         public Color Color { get; set; }
